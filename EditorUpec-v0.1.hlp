@@ -1,0 +1,210 @@
+[1;32;40m +---------------------------------+
+ |        [0mEditeur UPEC v0.1        [1;32;40m|
+ | [0m(c) 2020 Valentin LAFITAU - L2  [1;32;40m|
+ | [0mProjet L2 - Systeme - Mai 2020  [1;32;40m|
+ +---------------------------------+[0m
+
+ [7m[1;33;40m[            PAGE D'AIDE          ][0m
+
+[1;32;40m:help[1;31;40m[Enter][0m ou [1;32;40m:h[1;31;40m[Enter][0m
+Affiche une page d'aide.
+([1;32;40m:q[0m ou [1;32;40m[Ctrl-Q][0m pour sortir).
+
+
+[4mAppel de l'éditeur[0m :
+
+  [1;32;40mprojet[1;31;40m[Enter][0m
+  Lance l'éditeur avec une page vierge.
+
+  [1;32;40mprojet [1;33;40m<fichier>[1;31;40m[Enter][0m
+  Lance l'éditeur en chargeant le fichier spécifié.
+
+
+[4mSortie de l'éditeur[0m :
+
+  [1;32;40m:q[1;31;40m[Enter][0m
+  Quitte l'éditeur. Un signalement sera fait si les modifications n'ont pas été enregistrées au préalable dans l'éditeur courant ou dans l'un des éditeurs en arrière plan.
+
+  [1;32;40m:q![1;31;40m[Enter][0m
+  Quitte l'éditeur courant en mode forcé. Toutes les modifications non enregistrées dans l'éditeur courant sont perdues.
+  Un signalement sera néanmoins fait si d'autres éditeurs en arrière plan n'ont pas été sauvegardés.
+
+  [1;32;40m:qa![1;31;40m[Enter][0m
+  Quitte l'éditeur en mode forcé. Quitte immédiatement, toutes les modifications non enregistrées dans l'éditeur courant ou ceux en arrière plan sont perdues.
+
+
+[4mOuverture d'un fichier[0m :
+
+  [1;32;40m:r [1;33;40m<fichier>[1;31;40m[Enter][0m
+  Charge le fichier spécifié dans l'éditeur courant.
+  Un signalement sera fait si les modifications n'ont pas été enregistrées au préalable.
+
+  [1;32;40m:r! [1;33;40m<fichier>[1;31;40m[Enter][0m
+  Charge le fichier spécifié en mode forcé. Toutes les modifications non enregistrées dans l'éditeur courant sont perdues.
+
+
+[4mSauvegarde dans un fichier[0m :
+
+  [1;32;40m:w[1;31;40m[Enter][0m
+  Sauvegarde l'éditeur courant. Un signalement sera fait si aucun nom de fichier n'est associé à l'éditeur courant.
+
+  [1;32;40m:w [1;33;40m<fichier>[1;31;40m[Enter][0m
+  Enregistre l'éditeur courant dans le fichier spécifié. Ce dernier devient alors associé à l'éditeur (fonction équivalente à "Enregistrer sous...").
+
+  [1;32;40m:wq[1;31;40m[Enter][0m
+  Enregistre l'éditeur courant, puis quitte l'éditeur.
+  Un signalement sera fait si aucun nom de fichier n'est associé à l'éditeur courant.
+  Un signalement sera également fait si d'autres éditeurs en arrière plan n'ont pas été sauvegardés.
+
+  [1;32;40m:wa[1;31;40m[Enter][0m
+  Enregistre tous les éditeurs (courant et ceux en arrière plan).
+  Un nom par défaut sera attribué aux éditeurs sans nom de fichier associé.
+
+  [1;32;40m:waq[1;31;40m[Enter][0m
+  Enregistre tous les éditeurs (courant et ceux en arrière plan), puis quitte l'éditeur.
+  Un nom par défaut sera attribué aux éditeurs sans nom de fichier associé.
+
+
+[4mOuverture d'une nouvelle page vierge[0m :
+
+  [1;32;40m:n[1;31;40m[Enter][0m
+    Réinitialisation de l'éditeur courant.
+    Un signalement sera fait si les modifications n'ont pas été enregistrées au préalable.
+
+  [1;32;40m:n![1;31;40m[Enter][0m
+  Réinitialisation forcée de l'éditeur courant.
+  Toutes les modifications non enregistrées sont perdues.
+
+
+[4mDéplacements dans l'éditeur[0m :
+
+  [1;32;40mq[0m ou [1;32;40m[Flèche Gauche][0m
+  Déplace le curseur d'un caractère vers le début du fichier.
+
+  [1;32;40md[0m ou [1;32;40m[Flèche Droite][0m
+  Déplace le curseur d'un caractère vers la fin du fichier.
+
+  [1;32;40mz[0m ou [1;32;40m[Flèche Haut][0m
+  Déplace le curseur d'une ligne vers le début du fichier.
+
+  [1;32;40ms[0m ou [1;32;40m[Flèche Bas][0m
+  Déplace le curseur d'une ligne vers la fin du fichier.
+
+  [1;32;40m0[0m ou [1;32;40m[Home][0m
+  Déplace le curseur en début de ligne courante.
+
+  [1;32;40m$[0m ou [1;32;40m[Fin][0m
+  Déplace le curseur en fin de ligne courante.
+
+  [1;32;40mCtrl-B[0m ou [1;32;40m[PgUp][0m
+  Déplace le curseur d'un écran vers le début du fichier.
+
+  [1;32;40mCtrl-F[0m ou [1;32;40m[PgDown][0m
+  Déplace le curseur d'un écran vers la fin du fichier.
+
+  Le curseur peut aussi être placé sur un caractère précis en cliquant dessus avec la souris.
+
+
+[4mCommandes du mode insertion[0m :
+
+  [1;32;40mi[0m
+  Passe l'éditeur en mode insertion, qui permet de modifier le contenu de l'éditeur courant.
+  Le signal ---INSERTION--- apparaît au début de la ligne de service en bas de l'écran.
+
+  [1;33;40m<car>[0m ou [1;32;40m[Enter][0m
+  Insère le caractère frappé ou une nouvelle ligne à la position courante du curseur.
+
+  [1;32;40m[Tab][0m ou [1;32;40m[Ctrl-Tab][0m
+  Insère cinq caractères d'espacement ' ' pour simuler le caractère de tabulation.
+
+  [1;32;40m[BackSpace][0m
+  Efface le caractère précédant la position courante du curseur. En début de ligne, l'appui sur cette touche fusionne la ligne courante avec la précédente.
+
+  [1;32;40m[Suppr][0m
+  Efface le caractère à la position courante du curseur. En fin de ligne, l'appui sur cette touche fusionne la ligne suivante avec la ligne courante.
+
+  [1;32;40m[Esc][0m
+  Repasse l'éditeur en mode normal, qui permet de parcourir le contenu de l'éditeur sans le modifier, ainsi que d'exécuter des commandes.
+  Le signal ---INSERTION--- disparaît du début de la ligne de service en bas de l'écran.
+
+
+[4mCommandes du mode multi-éditeurs[0m :
+
+  L'éditeur Upec comporte par défaut dans la version 0.1 un ensemble de 10 pages d'édition indépendantes allouées au début de la session.
+  Ces pages peuvent être chargées, éditées et sauvegardées indépendamment avec les commandes déjà exposées supra.
+
+  L'invocation peut aussi se faire directement en ligne de commande au moment de l'appel de l'éditeur.
+
+  [1;32;40mprojet [1;33;40m<fic_1> <fic_2> ... <fic_n>[1;31;40m[Enter][0m
+  Lance l'éditeur en chargeant chaque fichier spécifié dans un éditeur indépendant.
+  Le nombre maximum d'éditeurs simultanés est de 10 dans cette version.
+  L'éditeur courant (n°0 à l'initialisation) est chargé avec le premier fichier spécifié.
+  Si un fichier spécifié est introuvable ou illisible, la page d'éditeur correspondante sera vierge.
+
+  [1;32;40m:bi[1;31;40m[Enter][0m
+  Affiche une page récapitulative de l'état des éditeurs actifs.
+  L'éditeur courant apparaît en video inverse.
+  Cette page indique notamment les pages modifiées qui n'ont pas encore été sauvegardées.
+
+  [1;32;40m[Tab][0m ou [1;32;40m[Ctrl-Tab][0m
+  [1;32;40m[Shift-Tab][0m en mode INSERTION
+  Bascule à l'éditeur suivant dans la liste des pages actives. Cycle automatiquement en fin de liste.
+
+  [1;32;40m:b[1;33;40m<n>[1;31;40m[Enter][0m ou
+  [1;32;40m:b [1;33;40m<n>[1;31;40m[Enter][0m
+  Permet de basculer directement sur l'éditeur spécifié. Les n° acceptés sont [0..9].
+
+
+[4mRaccourcis clavier[0m :
+
+  Certaines commandes très usuelles disposent d'un raccourci clavier accessible hors du mode commande.
+  Cette fonctionnalité permet d'activer une commande d'une simple combinaison de touches.
+
+  En mode NORMAL :
+   [1;32;40m[Ctrl-Q][0m  Sortie.      Identique à la commande ":q".
+   [1;32;40m[Ctrl-H][0m  Page d'aide. Identique à la commande ":h".
+   [1;32;40m[Ctrl-S][0m  Sauvegarde.  Identique à la commande ":w".
+
+   [1;32;40m[Tab][0m,[1;32;40m[Ctrl-Tab][0m,[1;32;40m[Shift-Tab][0m
+   Bascule sur l'éditeur suivant. Cycle automatiquement en fin de liste.
+
+  En mode INSERTION :
+   [1;32;40m[Shift-Tab][0m
+   Bascule sur l'éditeur suivant. Cycle automatiquement en fin de liste.
+
+
+[4mRecherche et remplacement de texte[0m :
+
+  En mode NORMAL, la commande / permet de spécifier une chaîne de caractère à remplacer par une autre, avec certaines options.
+  [1;32;40m/[1;33;40m<s>[1;32;40m/[1;33;40m<r>[1;32;40m/[1;33;40m<o>[1;31;40m[Enter][0m
+
+  Où :
+  [1;33;40m<s>[0m : Chaîne à rechercher.
+  [1;33;40m<r>[0m : Chaîne de remplacement.
+  [1;33;40m<o>[0m : Options de recherche et remplacement.
+
+  Options [1;33;40m<o>[0m :
+    [1;34;40m<vide>[0m : Remplace la première occurence trouvée en aval du curseur, jusqu'à la fin du fichier.
+    [1;32;40m<n>[0m : Remplace les n premières occurences trouvées en aval du curseur, jusqu'à la fin du fichier.
+    [1;32;40m[g,G,*][0m (Global) : remplace toutes les occurences trouvées dans le fichier.
+
+
+[4mLigne de service de l'éditeur[0m :
+
+  En mode NORMAL et INSERTION, l'éditeur présente sur la dernière ligne d'écran une ligne de service qui présente diverses informations sur l'état de l'éditeur courant (ligne d'état).
+  En mode COMMANDE ou de recherche / remplacement de texte, la ligne de service sert à saisir la commande à effectuer.
+  Cette ligne sert également à afficher tous les messages de services émis par l'éditeur à destination de l'utilisateur (messages d'erreur, résultats de commandes, etc.).
+
+  Description de la ligne d'état (de gauche à droite) :
+
+  [1;34;40m---INSERTION---[0m Signalement du mode INSERTION actif.
+  [1;34;40m<x,y>[0m           Coordonnées courantes du curseur souris.
+  [1;34;40m[x,y][0m           Coordonnées courantes du curseur texte.
+  [1;34;40mEd.N[0m            Index de l'éditeur courant (0..9).
+  [1;34;40m"<fic>"[0m         Fichier associé à l'éditeur courant.
+  [1;34;40m*[0m               Signal de modifications non sauvées.
+  [1;34;40m(Cx,Ly)[0m         Caractère courant dans le fichier.
+  [1;34;40mttyXxY[0m          Géométrie du terminal (LxC).
+
+
+  [7m[1;33;40m[        FIN DE PAGE D'AIDE          ][0m

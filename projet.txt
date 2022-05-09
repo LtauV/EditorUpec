@@ -1,0 +1,133 @@
+[Mars 2020]
+-Etude du module termios.
+-Activation et desactivation du mode raw. Passe bien en mode raw, mais retour arriere KO.
+
+[Mar 07.04.2020]
+-Debogage du mode raw avec termios. OK
+-Affichage d'un fichier texte. OK, mais ne gere pas les limites de la fenetre.
+
+[Mer 08.04.2020]
+-Determination de la geometrie de la fenetre du terminal :
+  .Les variables LINES et COLUMNS ne sont pas exportees dans le processus fils du shell.
+  .Solution de contournement trouvee via l'usage de la fonction ioctl() associee a la commande TIOCGWINSZ.
+-Affichage d'un fichier texte avec gestion des limites de la fenetre.
+
+[Ven 10.04.2020]
+-Creation de structures gardant les informations du terminal, et utilisation de ces structure au lieu de variables locales
+
+[Sam 11.04.2020]
+-Nettoyage du code, amelioration de la modularite, commentaires...
+-Etude des codes ANSI VT100 pour la gestion du curseur.
+-Debut de deplacement du curseur avec touches {z,q,s,d} et fleches {Haut,Bas.Gauche,Droite}.
+
+[Mar 14.04.2020]
+-Utilisation d'un buffer d'affichage ecran comme vu dans le cours p.18 pour eviter de multiplier les ecritures unitaires dans stdout.
+-Poursuite de la gestion du curseur.
+-Debut de gestion des modes de l'editeur.
+
+[Mer 15.04.2020]
+-Ajout de structures de donnees gerant le multi-ligne dans l'editeur.
+-Reecriture de la fonction d'affichage des lignes a l'ecran.
+-Lecture d'un fichier texte et chargement dans l'editeur.
+
+[Ven 17.04.2020]
+-Fin de gestion des touches et deplacement du curseur.
+-Traitement simultane des coordonnees dans le buffer de l'editeur et a l'ecran.
+
+[Sam 18.04.2020]
+-Debut d'implementation du mode insertion avec ajout des caracteres simples.
+-Traitement des fleches en insertion :
+ .PgUp et PgDown OK (apres recup 4eme car de la sequence Esc[).
+ .Fleches Haut et Gauche OK
+-Reste a traiter  :
+ .les touches Suppr, BackSpace.
+ .cas particulier fin de ligne ou de fichier pour Fleche Bas et Droite.
+ .Touche CR pour inserer des lignes vierges.
+
+[Dim 19.04.2020]
+-Enrichissement de la ligne de service (gestion du Flag Modifie)
+-Sauvegarde de l'editeur dans un fichier (traitee dans le mode normal avec CTRL-S en attendant de gerer le mode commande)
+-Traitement des touches Suppr et BackSpace en mode insertion.
+-Bugs residuels a eliminer :
+ .Suppr en fin de ligne : Dernier caractere non supprime avant la fusion avec la ligne suivante.
+ .BS vers une ligne vide : curseur ecran desynchronise.
+
+[Lun 20.04.2020]
+-Correction des bugs de traitement de l'effacement de caracteres avec <BS> et <Suppr>
+-Implementation de l'insertion de nouvelles lignes (touche <Enter>)
+-Amelioration de la gestion du curseur (calcul de coordonnees absolu vs relatif).
+
+[Mar 21.04.2020]
+-Correction du decalage d'offset pour l'insertion de lignes et l'effacement de caracteres.
+-Creation d'une fonction de gestion de messages de service pourle mode commande.
+
+[Mer 22.04.2020]
+-Correction de bugs de gestion curseur et d'effacement de lignes dans un editeur vierge
+-Reecriture des appels de fonctions pour preparer la gestion multi-editeurs
+-Creation d'un Splash screen affiche au demarrage.
+
+[Jeu 23.04.2020]
+-Creation d'une fonction d'execution des commandes.
+-Implementation des fonctions Quit, Help.
+-Debut d'implementation des commandes de chargement et sauvegarde de l'editeur
+
+[Ven 24.04.2020]
+-Conclusion du developpement du mode commande
+-Redaction d'une page d'aide consultable dans l'editeur
+-Ajout de la colorisation du fichier d'aide
+
+[Sam 25.04.2020]
+-Ajout de la commande :wq
+-Ajout du user courant au groupe "input" par la commande "sudo adduser <user> input", afin d'obtenir les droits de lecture sur fichier special /dev/input/mice
+
+[Dim 26.04.2020]
+-Implementation du traitement des evenements souris par lecture du fichier device /dev/nput/mice
+-Modification du curseur pour suivre les deplacements de la souris.
+
+[Mar 28.04.2020]
+-Gestion du deplacement du curseur souris dans l'editeur.
+-Gestion du deplacement de curseur texte sur clic souris.
+
+[Mer 29.04.2020]
+-Modification de la gestion du curseur en adressage absolu via une formule de calcul plutôt que par deplacement relatif.
+
+[Ven 01.05.2020]
+-Mise en place de la gestion multi-editeurs
+-Implementation de commandes pour changer l'editeur courant.
+-Creation d'une fonction d'affichage recapitulatif des infos sur les editeurs disponibles.
+
+[Sam 02.05.2020]
+-Prise en compte du multi-editeurs dans les commandes existantes (tests de sortie).
+-Implementation des commandes pour sauver tous les editeurs (puis eventuellement sortir).
+-Gestion d'attribution de noms de fichiers par defaut pour les editeurs sans nom, avec generation d'un nom unique base sur le timestamp courant et le numero d'editeur.
+
+[Dim 03.05.2020]
+-Correction de la gestion des touches Ctrl,Shift,Tab pour la bascule multi-editeurs.
+-Implementation de raccourcis clavier type Ctrl-<n> pour activer des commandes.
+-Corrections de bugs.
+-Enrichissement de la page d'aide.
+
+[Lun 04.05.2020]
+-Debut d'implementation d'une fonction de recherche/remplacement de texte simple.
+
+[Mar 05.05.2020]
+-Achevement et mise au point de la fonction de recherche/remplacement de texte simple.
+-Mise a jour de la page d'aide en consequence.
+
+[Jeu 07.05.2020]
+-Correction de l'effet de bord sur suppression par backspace d'une ligne en frontiere haute d'ecran.
+-Idem sur le mouvement vers la droite du curseur en fin d'ecran.
+-Gestion plus souple du scrolling ecran avec les touches Haut et Bas.
+-Toilette de code (commentaires, infos debug, etc.)
+
+[Ven 08.05.2020]
+-Assouplissement de la gestion des deplacements curseur. On peut parcourir tout le fichier avec chaque fleche de deplacement.
+-Correction des derniers bugs sur le mode insertion en limite inferieure d'ecran.
+
+Limitations du programme :
+ -Pas de gestion du caractere Tabulation (simulation avec des espaces).
+ -Probleme de synchro du curseur avec les caracteres accentues.
+ -Gestion rigide de PgUp/PgDown.
+ -Effets de bords en insertion de caractere sur les lignes frontieres de bas d'ecran.
+ -Idem sur le calcul de coordonnees curseur sur le premier clic souris.
+ -Recherche/remplacement : on ne peut pas inclure de '/' dans les motifs de recherche et remplacement car il sert de separateur de champs. On n'a pas gere de possibilite d'echappement, par exemple en prefixant avec le caractere '\', ce qui complique beaucoup le parsing.
